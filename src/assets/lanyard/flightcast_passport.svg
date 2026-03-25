@@ -1,0 +1,32 @@
+<svg width="1024" height="1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111" />
+      <stop offset="100%" stop-color="#05010d" />
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+  </defs>
+  <!-- Background Base -->
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  
+  <!-- Glowing border effect -->
+  <rect x="10" y="10" width="1004" height="1004" fill="none" stroke="url(#purple)" stroke-width="8" rx="40"/>
+
+  <!-- Content -->
+  <text x="120" y="240" fill="url(#purple)" font-family="-apple-system, sans-serif" font-size="95" font-weight="800" letter-spacing="-2">FLIGHTCAST</text>
+  
+  <rect x="120" y="320" width="784" height="4" fill="url(#purple)"/>
+
+  <text x="120" y="460" fill="#a1a1aa" font-family="-apple-system, sans-serif" font-size="40" font-weight="600" letter-spacing="2">PASSENGER TIER</text>
+  <text x="120" y="550" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="75" font-weight="bold" letter-spacing="-1">PRO MEMBER</text>
+
+  <text x="120" y="720" fill="#a1a1aa" font-family="-apple-system, sans-serif" font-size="40" font-weight="600" letter-spacing="2">LIVE STATUS</text>
+  <text x="120" y="810" fill="#10b981" font-family="-apple-system, sans-serif" font-size="75" font-weight="bold" letter-spacing="-1">ON TIME (SECURE)</text>
+
+  <!-- Barcode element at the bottom -->
+  <rect x="120" y="900" width="784" height="60" fill="#ffffff" rx="8"/>
+  <text x="512" y="945" fill="#000000" font-family="monospace" font-size="45" font-weight="800" text-anchor="middle" letter-spacing="8">|||| ||||| | |||| |||||||||| ||||</text>
+</svg>
