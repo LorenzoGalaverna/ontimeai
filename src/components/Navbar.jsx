@@ -55,8 +55,6 @@ export default function Navbar({ language, setLanguage, copy }) {
   const links = [
     { label: copy.nav.features, href: "#features" },
     { label: copy.nav.how, href: "#how" },
-    { label: copy.nav.pricing, href: "#pricing" },
-    { label: copy.nav.customers, href: "#customers" },
   ];
 
   const isEs = language === "es";

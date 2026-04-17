@@ -3,6 +3,10 @@ import { Plane, MapPin, Clock, AlertTriangle, Smartphone, ArrowRight } from "luc
 import { gsap, useGSAP, splitWords } from "../../lib/gsap";
 import Magnetic from "../primitives/Magnetic";
 
+// Swap for /public/plane.png when you have a custom asset.
+const PLANE_SRC =
+  "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Airplane/3D/airplane_3d.png";
+
 export default function Hero({ copy, language }) {
   const root = useRef(null);
 
@@ -322,105 +326,12 @@ export default function Hero({ copy, language }) {
           <div
             className="hero-plane absolute left-1/2 top-[10%] -translate-x-1/2 w-[300px] md:w-[420px] drop-shadow-[0_30px_60px_rgba(139,92,246,0.55)]"
           >
-            <svg viewBox="0 0 512 512" className="w-full h-auto text-white">
-              <defs>
-                <linearGradient id="planeBody" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#ffffff" />
-                  <stop offset="60%" stopColor="#E9D5FF" />
-                  <stop offset="100%" stopColor="#A78BFA" />
-                </linearGradient>
-                <linearGradient id="planeShade" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
-                  <stop offset="100%" stopColor="#000000" stopOpacity="0.35" />
-                </linearGradient>
-                <linearGradient id="windowGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#1e1b4b" />
-                  <stop offset="100%" stopColor="#3b0764" />
-                </linearGradient>
-              </defs>
-
-              {/* Soft shadow */}
-              <ellipse cx="256" cy="470" rx="150" ry="14" fill="rgba(0,0,0,0.4)" />
-
-              {/* Wings */}
-              <path
-                d="M256 220 L90 300 L90 322 L256 290 L422 322 L422 300 Z"
-                fill="url(#planeBody)"
-              />
-              <path
-                d="M256 220 L90 300 L90 322 L256 290 L422 322 L422 300 Z"
-                fill="url(#planeShade)"
-                opacity="0.4"
-              />
-
-              {/* Fuselage */}
-              <path
-                d="M256 40
-                   C 280 40 296 80 300 160
-                   L 308 340
-                   L 300 420
-                   C 280 450 232 450 212 420
-                   L 204 340
-                   L 212 160
-                   C 216 80 232 40 256 40 Z"
-                fill="url(#planeBody)"
-              />
-              <path
-                d="M256 40
-                   C 280 40 296 80 300 160
-                   L 308 340
-                   L 300 420
-                   C 280 450 232 450 212 420
-                   L 204 340
-                   L 212 160
-                   C 216 80 232 40 256 40 Z"
-                fill="url(#planeShade)"
-                opacity="0.35"
-              />
-
-              {/* Cockpit */}
-              <path
-                d="M256 58 C 272 58 286 78 286 108 C 286 118 270 124 256 124 C 242 124 226 118 226 108 C 226 78 240 58 256 58 Z"
-                fill="url(#windowGrad)"
-              />
-
-              {/* Side windows */}
-              {Array.from({ length: 8 }).map((_, i) => (
-                <rect
-                  key={i}
-                  x="244"
-                  y={160 + i * 22}
-                  width="24"
-                  height="10"
-                  rx="3"
-                  fill="#1e1b4b"
-                  opacity="0.85"
-                />
-              ))}
-
-              {/* Tail */}
-              <path
-                d="M256 360 L222 432 L222 446 L256 430 L290 446 L290 432 Z"
-                fill="url(#planeBody)"
-              />
-              <path
-                d="M256 360 L222 432 L222 446 L256 430 L290 446 L290 432 Z"
-                fill="url(#planeShade)"
-                opacity="0.5"
-              />
-
-              {/* Engines */}
-              <ellipse cx="170" cy="320" rx="16" ry="8" fill="#2e1065" />
-              <ellipse cx="342" cy="320" rx="16" ry="8" fill="#2e1065" />
-
-              {/* Highlight streak */}
-              <path
-                d="M256 60 C 268 60 276 100 280 160 L 284 340"
-                stroke="#ffffff"
-                strokeOpacity="0.6"
-                strokeWidth="2"
-              />
-            </svg>
+            <img
+              src={PLANE_SRC}
+              alt="Airplane"
+              className="w-full h-auto select-none pointer-events-none"
+              draggable="false"
+            />
           </div>
 
           {/* Alert cards floating around */}

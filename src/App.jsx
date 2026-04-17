@@ -5,8 +5,6 @@ import Hero from "./components/sections/Hero";
 import Features from "./components/sections/Features";
 import HowItWorks from "./components/sections/HowItWorks";
 import Airlines from "./components/sections/Airlines";
-import Pricing from "./components/sections/Pricing";
-import Testimonials from "./components/sections/Testimonials";
 import CTA from "./components/sections/CTA";
 import Footer from "./components/sections/Footer";
 
@@ -21,8 +19,6 @@ export default function App() {
       <Airlines copy={copy} />
       <Features copy={copy} />
       <HowItWorks copy={copy} />
-      <Pricing copy={copy} />
-      <Testimonials copy={copy} />
       <CTA copy={copy} />
       <Footer copy={copy} />
     </main>
