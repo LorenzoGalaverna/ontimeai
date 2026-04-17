@@ -1,1 +1,133 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-ink: #05010D;
+  --color-ink-2: #0A0614;
+  --color-ink-3: #120A22;
+  --color-violet-50: #F5F0FF;
+  --color-violet-200: #D9C7FF;
+  --color-violet-400: #A78BFA;
+  --color-violet-500: #8B5CF6;
+  --color-violet-600: #7C3AED;
+  --color-violet-700: #6D28D9;
+  --color-accent: #C4B5FD;
+}
+
+:root {
+  color-scheme: dark;
+  --radius-card: 28px;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--color-ink);
+  color: #fff;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv11", "ss01", "ss03";
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-violet-500);
+  color: #fff;
+}
+
+/* Utility: grain overlay */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+}
+
+/* Radial aurora background */
+.aurora {
+  position: absolute;
+  inset: -20% -10%;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 40% at 20% 20%, rgba(139, 92, 246, 0.35), transparent 70%),
+    radial-gradient(35% 35% at 80% 10%, rgba(236, 72, 153, 0.22), transparent 65%),
+    radial-gradient(45% 45% at 50% 90%, rgba(59, 130, 246, 0.25), transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.grid-mask {
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 40%, transparent 80%);
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 40%, transparent 80%);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Words prepared for stagger-in reveal */
+.word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.word > span {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+}
+
+/* Marquee base (GSAP animates transform) */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Glow ring for CTA */
+.btn-glow {
+  position: relative;
+  isolation: isolate;
+}
+.btn-glow::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(from 180deg, #8B5CF6, #EC4899, #3B82F6, #8B5CF6);
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
+}
+.btn-glow:hover::before {
+  opacity: 1;
+}
+
+/* Scroll indicator dashes */
+.dashes {
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.25) 50%, transparent 50%);
+  background-size: 14px 1px;
+  background-repeat: repeat-x;
+  height: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
